@@ -40,6 +40,7 @@ router.get("/greeting", (req, res) => {
   const surname = req.query.surname;
   res.send(`Hey from NodeJS Mss or Mr ${name} ${surname}`);
 });
+//To use this we'll have to type on the browser this --> http://localhost:8080/greeting/?name=WhateverName&surname=WhateverSurname
 
 server.use("/", router);
 
