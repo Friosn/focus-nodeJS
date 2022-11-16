@@ -15,4 +15,4 @@ const directorSchema = new Schema(
 );
 
 const Directors = mongoose.model("Directors", directorSchema);
-module.exports = Movies;
+module.exports = Directors;

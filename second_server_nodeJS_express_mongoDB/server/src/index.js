@@ -13,8 +13,6 @@ const server = express();
 server.use(cors());
 const router = express.Router();
 
-router.get();
-
 router.get("/movies", async (req, res) => {
   try {
     const movies = await Movies.find();
@@ -34,6 +32,6 @@ router.get("/directors", async (req, res) => {
 });
 
 server.use("/cinema/", router);
-server.listen(proccess.env.PORT, () => {
+server.listen(process.env.PORT, () => {
   console.log("Does this work?");
 });

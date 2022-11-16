@@ -4,44 +4,45 @@ const Director = require("../models/names.model");
 
 const directorList = [
   {
+    name: "Hermanas Wachowski",
     movie: "The Matrix",
-    name: "Hermanas Wachowski",
+    year: 1000,
     status: "alive",
   },
   {
+    name: "Hermanas Wachowski",
     movie: "The Matrix Reloaded",
-    name: "Hermanas Wachowski",
-
+    year: 1000,
     status: "alive",
   },
   {
+    name: "Andrew Stanton",
     movie: "Buscando a Nemo",
-    name: "Andrew Stanton",
-
+    year: 1000,
     status: "alive",
   },
   {
+    name: "Andrew Stanton",
     movie: "Buscando a Dory",
-    name: "Andrew Stanton",
-
+    year: 1000,
     status: "alive",
   },
   {
-    movie: "Interestelar",
     name: "Christopher Nolan",
-
+    movie: "Interestelar",
+    year: 1000,
     status: "alive",
   },
   {
-    movie: "50 primeras citas",
     name: "Peter Segal",
-
+    movie: "50 primeras citas",
+    year: 1000,
     status: "dead",
   },
 ];
 
-const moviesToDataBase = movieList.map(
-  (movieElement) => new Movie(movieElement)
+const directorsToDataBase = directorList.map(
+  (directorElement) => new Director(directorElement)
 );
 
 mongoose
@@ -54,13 +55,14 @@ mongoose
   )
   .then(async () => {
     const directorsRecovered = await Director.find();
+    console.log(directorsRecovered);
     if (directorsRecovered.length) {
       await Director.collection.drop();
     }
   })
   .catch((err) => console.log(`Error deleting the data ${err}`))
   .then(async () => {
-    await Director.insertMany(moviesToDataBase);
+    await Director.insertMany(directorsToDataBase);
     console.log("The data-base has been created");
   })
   .catch((err) => console.log(`Error at creating the data-base ${err}`))
