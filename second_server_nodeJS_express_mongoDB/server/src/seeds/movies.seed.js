@@ -46,7 +46,13 @@ const moviesToDataBase = movieList.map(
 );
 
 mongoose
-  .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(
+    "mongodb+srv://admin:UkkeCamper235@cluster0.8ivkog1.mongodb.net/myMovies?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(async () => {
     const moviesRecovered = await Movie.find();
     if (moviesRecovered.length) {
