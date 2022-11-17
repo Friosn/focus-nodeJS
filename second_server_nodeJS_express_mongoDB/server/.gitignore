@@ -1,3 +1,4 @@
 node_modules
 .env
-src/seeds/
+src/seeds/directors.seed.js
+src/seeds/movies.seed.js
