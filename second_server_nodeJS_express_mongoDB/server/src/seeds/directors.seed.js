@@ -1,6 +1,9 @@
 const mongoose = require("mongoose");
 
-const Director = require("../models/names.model");
+const Director = require("../models/directors.model");
+
+const dotenv = require("dotenv");
+dotenv.config();
 
 const directorList = [
   {
@@ -44,8 +47,8 @@ const directorList = [
 const directorsToDataBase = directorList.map(
   (directorElement) => new Director(directorElement)
 );
-
-mongoose
+/*process.env.MONGO_URI
+ */ mongoose
   .connect(
     "mongodb+srv://admin:UkkeCamper235@cluster0.8ivkog1.mongodb.net/myMovies?retryWrites=true&w=majority",
     {

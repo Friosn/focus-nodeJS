@@ -3,7 +3,8 @@ const mongoose = require("mongoose");
 
 dotenv.config();
 
-/* const mongoURI = process.env.MONGO_URI; */
+const mongoURI = process.env.MONGO_URI;
+console.log(mongoURI);
 
 const connect = async () => {
   try {
